@@ -55,3 +55,9 @@ GROUP BY
 	user_birth_year
 HAVING
 	AVG(user_height) >= 160;
+
+
+
+    
+    
+    
