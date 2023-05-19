@@ -197,6 +197,29 @@ CREATE TABLE CAT (
     animal_type VARCHAR(20)
 );
 
+INSERT INTO cat VALUES
+	('룰루', 4, '룰맘', '고양이'),
+    ('어완자', 5, '양정', '고양이');
+INSERT INTO dog VALUES
+	('턱순이', 7, '이영수', '강아지'),
+    ('구슬이', 8, '이영수', '강아지');
+    
+-- UNION으로 결과 합치기
+SELECT * FROM CAT
+UNION
+SELECT * FROM DOG;
 
+-- MySQL은 FULL OUTER JOIN을 UNION을 이용해서 합니다.
+-- LEFT 조인 구문 UNION RIGHT 조인구문
+-- 순으로 작성하면 됩니다.
+SELECT m.mem_num, m.mem_name, m.mem_addr,
+		p.pur_date, p.pur_num, p.pur_price
+FROM member_tbl m LEFT JOIN purchase_tbl p
+ON m.mem_num = m.mem_num
 
+UNION 
 
+SELECT m.mem_num, m.mem_name, m.mem_addr,
+		p.pur_date, p.pur_num, p.pur_price
+FROM member_tbl m RIGHT JOIN purchase_tbl p
+ON m.mem_num = m.mem_num;
